@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form id="myform" action="http://www.qq.com" method="post" >
+    <p>
+        用户名：<input type="text" id="username">
+    </p>
+    <p>
+        密码：<input type="password" id="password">
+    </p>
+    <p>
+        <input type="submit" value="确定" id="btn">
+    </p>
+</form>
+
+<p>
+    <h4>全选功能</h4>
+    你的爱好：
+<input type="checkbox" value="sing" class="hobby">唱歌
+<input type="checkbox" value="dance" class="hobby">跳舞
+<input type="checkbox" value="paint" class="hobby">画画
+<br>
+<input type="checkbox" id="checkAll">全选
+</p>
+
+<script src="jquery-3.4.0.min.js"></script>
+<script>
+
+    /*$('#btn').click(function () {
+        var name = $("#username").val();
+
+        if(name == ""){
+            alert("请输入用户名!");
+        }
+    });*/
+
+    $('#myform').submit(function () {
+        var name = $("#username").val();
+
+        if(name == ""){
+            alert("请输入用户名!");
+            return false;//阻止表单提交
+        }
+        return true;
+    });
+
+    var flag = false;//false代表没选中，true代表选中
+    $('#checkAll').click(function () {
+        if(flag == true){
+            $('.hobby').attr("checked", false);
+            flag = false;
+        }else{
+            $('.hobby').attr("checked", true);
+            flag = true;
+        }
+
+    });
+
+</script>
+
+</body>
+</html>

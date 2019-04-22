@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>登录</title>
+
+</head>
+<body>
+
+<form action="server.php" method="post">
+    <p>
+        用户名：<input type="text" name="username" id="uname">
+        <span id="tip"></span>
+    </p>
+    <p>
+        密码：<input type="password" name="password">
+    </p>
+    <p>
+        <input type="submit" value="确定">
+    </p>
+    <p>
+        <a href="reg.php?status=teacher">老师注册</a>
+        <a href="reg.php?status=student">学生注册</a>
+    </p>
+</form>
+
+<script src="jquery-3.4.0.min.js"></script>
+<script>
+    $('#uname').blur(function () {
+        $.get('checkName.php?username='+this.value, function(data){
+            $('#tip').text(data);
+        });
+    });
+</script>
+
+</body>
+</html>

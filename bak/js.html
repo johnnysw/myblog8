@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js基础</title>
+</head>
+<body>
+
+
+<script>
+    /*
+    function test() {
+        console.log('test is called...');
+    }
+    */
+
+    /*var test = function () {
+        console.log('test is called...');
+    };
+
+    test();*/
+
+
+    /*function test(a) {
+        a(function(c){
+            console.log(c);
+        });
+    }
+
+    test(function(b){
+        b(123);
+    });*/
+
+
+    /*var cat = new Object();
+    cat.name = 'mimi';
+    cat.age = 3;
+    cat.eat = function () {
+      console.log(this.name + " is eating..");
+    };*/
+
+    var cat = {//对象直接量
+        name: 'mimi',
+        age: 3,
+        eat: function () {
+            console.log(this.name + " is eating..");
+        }
+    };
+
+    cat.eat();
+</script>
+
+</body>
+</html>
