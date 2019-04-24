@@ -1,0 +1,4 @@
+#实现任何非 index.php、assets/images、assets/css、assets/libs 和 robots.txt 的 HTTP 请求都被指向 index.php。
+RewriteEngine on
+RewriteCond $1 !^(index\.php|robots\.txt|humans\.txt)
+RewriteRule ^(.*)$ index.php/$1 [L]
