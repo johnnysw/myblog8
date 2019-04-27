@@ -7,6 +7,12 @@ class User extends CI_Controller {
         $this->load->view('login');
     }
 
+    public function logout()
+    {
+        $this->session->unset_userdata('user', NULL);
+        redirect('user/login');
+    }
+
     public function reg(){
         $this->load->view('reg');
     }
@@ -22,6 +28,8 @@ class User extends CI_Controller {
         if($user){//查到了用户
             //echo '登录成功';
             //$this->load->view('success');
+            //将用户数据存入session
+            $this->session->set_userdata('user', $user);
             redirect('admin/index');
         }else{
             redirect('user/login');

@@ -95,7 +95,7 @@
 
 			<div class="MainForm" id="login_page">
 				<form id="frm_login" action="user/check_login" method="POST" style="float:left; width:620px;">
-					<h2>登录个人博客，如果尚未加入的请点击<a href="reg.htm">注册新会员</a></h2>
+					<h2>登录个人博客，如果尚未加入的请点击<a href="user/reg">注册新会员</a></h2>
 					<div id="error_msg" class="error_msg" style="display:none;"></div>
 					<table>
 						<tbody>
