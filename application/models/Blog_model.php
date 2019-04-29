@@ -30,6 +30,36 @@ class Blog_model extends CI_Model {
         return $this->db->affected_rows();
     }
 
+    public function save_blog($title, $content, $user_id, $type_id){
+        $this->db->insert('t_blog', array(
+            'title'=>$title,
+            'content'=>$content,
+            'user_id'=>$user_id,
+            'type_id'=>$type_id
+        ));
+        return $this->db->affected_rows();
+    }
+
+    public function get_blogs_by_userid($user_id){
+        return $this->db->get_where('t_blog', array('user_id'=>$user_id))->result();
+    }
+
+
+    public function delete_blog($ids){
+        $this->db->query("delete from t_blog where blog_id in($ids)");
+        return $this->db->affected_rows();
+    }
+
+    public function get_by_blogid($blog_id){
+        $this->db->select("blog.*, usr.username");
+        $this->db->from('t_blog blog');
+        $this->db->join('t_user usr', 'blog.user_id=usr.user_id');
+        $this->db->where('blog.blog_id', $blog_id);
+
+        return $this->db->get()->row();
+
+        //return $this->db->get_where('t_blog', array('blog_id'=>$blog_id))->row();
+    }
 
 
 }
